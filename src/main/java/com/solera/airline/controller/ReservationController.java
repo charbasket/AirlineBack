@@ -26,45 +26,37 @@ import com.solera.airline.model.user.service.UserService;
 @RequestMapping("/reservations")
 public class ReservationController {
 	
-//	@Autowired
-//	private ReservationService rService;
-//	@Autowired
-//	private FlightService fService;
-//	@Autowired
-//	private UserService uService;
-//	
-//	@GetMapping("/all")
-//	public List<Reservation> getAllReservations() {
-//		return rService.findAllReservations();
-//	}
-//	
-//	@GetMapping("/{id}")
-//	public Reservation getReservationById(@PathVariable int id) {
-//		return rService.findByIdReservation(id);
-//	}
-//	
-//	@PostMapping("/create")
-//	public String createReservation(@RequestBody ReservationDTO reservationDTO) {
-//		Flight flight = fService.findByIdFlight(reservationDTO.getFlightId());
-//		if (flight==null) {
-//			return "Flight not found";
-//		}
-//		User user = uService.findByIdUser(reservationDTO.getUserId());
-//		if (user==null) {
-//			return "User not found";
-//		}
-//		Reservation reservation = new Reservation(user, flight);
-//		
-//		return rService.addReservation(reservation) == 1 ? "ok" : "error";
-//	}
-//	
-//	@DeleteMapping("{id}/delete")
-//	public String deleteReservationr(@PathVariable int id) {
-//		if(rService.findByIdReservation(id) == null) {
-//			return "The reservation does not exist";
-//		}
-//		return rService.deleteReservation(id) == 1 ? "ok" : "error";
-//	}
-//	
+	@Autowired
+	private ReservationService rService;
+
+	
+	@GetMapping("/all")
+	public List<Reservation> getAllReservations() {
+		return rService.findAllReservations();
+	}
+	
+	@GetMapping("/{id}")
+	public Reservation getReservationById(@PathVariable int id) {
+		return rService.findByIdReservation(id);
+	}
+	
+	@GetMapping("user/{id}")
+	public List<Reservation> getUserReservations (@PathVariable int id) {
+		return rService.findUserReservations(id);
+	}
+	
+	@PostMapping("/create")
+	public String createReservation(@RequestBody Reservation reservation) {
+		return rService.addReservation(reservation) == 1 ? "ok" : "error";
+	}
+	
+	@DeleteMapping("{id}/delete")
+	public String deleteReservationr(@PathVariable int id) {
+		if(rService.findByIdReservation(id) == null) {
+			return "The reservation does not exist";
+		}
+		return rService.deleteReservation(id) == 1 ? "ok" : "error";
+	}
+	
 	
 }

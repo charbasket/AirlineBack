@@ -35,6 +35,7 @@ public class FlightController {
 		return fService.findByIdFlight(id);
 	}
 	
+	
 //	@GetMapping("/destiny/{destiny}")
 //	public List<Flight> getFlightByDestiny(@PathVariable String destiny) {
 //		return fService.findByDestinyFlight(destiny);
@@ -47,13 +48,20 @@ public class FlightController {
 	
 	@GetMapping("/desOrg")
 	public List<Flight> getFlightByDestinyOrigin(@RequestParam (required = false) String origin, @RequestParam(required = false) String destiny,
-			@RequestParam (required = false) String airline, @RequestParam (required = false) Integer scales, @RequestParam (required = false) Boolean luggage  ) {
+			@RequestParam (required = false) String airline, @RequestParam (required = false) Integer scales  ) {
 		List<Flight> flightListToFilter = new ArrayList<>();
-		
-		if (origin!=null && destiny!=null && airline!=null && scales!=null && luggage!=null) {
-			
+		List<Flight> filteredList = new ArrayList<>();
+
+		if (origin!=null && destiny!=null && airline!=null && scales!=null) {
+			flightListToFilter = fService.findByOriginDestinyFlights(origin, destiny);
+			for (Flight i : flightListToFilter) {
+				if (i.getAirline().toLowerCase().equals(airline.toLowerCase()) && i.getScales()==scales) {
+					System.err.println("estoy en el if");
+					filteredList.add(i);
+				}
+			}
+			return filteredList;
 		}
-		flightListToFilter = fService.findByOriginDestinyFlights(origin, destiny);
 		
 		
 		if (origin!=null && destiny!=null) {

@@ -50,4 +50,9 @@ public class ReservationServiceImplementation implements ReservationService{
 		return ok;
 	}
 
+	@Override
+	public List<Reservation> findUserReservations(int userId) {
+		return rRepo.findReservationByUserId(userId);
+	}
+
 }
