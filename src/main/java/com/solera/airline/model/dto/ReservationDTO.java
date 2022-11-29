@@ -6,7 +6,7 @@ public class ReservationDTO {
 	private int userId;
 	private int flightId;
 	
-	public ReservationDTO(int reservationId, int userId, int flightId) {
+	public ReservationDTO(int userId, int flightId) {
 		this.userId = userId;
 		this.flightId = flightId;
 	}

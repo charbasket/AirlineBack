@@ -25,16 +25,19 @@ public class UserServiceImplementation implements UserService{
 	}
 
 	@Override
+	public User findByNameUser(String userName) {
+		return uRepo.findUserByName(userName);
+	}
+	
+	@Override
 	public int addUser(User user) {
 		int ok = 0;
-		if (uRepo.findById(user.getUserId()) == null) {
 			try {
 				uRepo.save(user);
 				ok = 1;
 			} catch (Exception e) {
 				e.printStackTrace();
 			} 
-		}
 		return ok;
 	}
 
@@ -51,5 +54,7 @@ public class UserServiceImplementation implements UserService{
 		}
 		return ok;
 	}
+
+
 
 }

@@ -27,13 +27,14 @@ public class Flight {
 	public Flight() {
 	}
 
-	public Flight(String origin, String destiny, String airline, int flightNumber, Date departureDate,
+	public Flight(String origin, String destiny, String airline, int flightNumber,
 			double transitTime, int scales, boolean luggage, double price) {
 		this.origin = origin;
 		this.destiny = destiny;
 		this.airline = airline;
 		this.flightNumber = flightNumber;
-		this.departureDate = departureDate;
+//		this.departureDate = departureDate;
+		this.departureDate = new Date();
 		this.transitTime = transitTime;
 		this.scales = scales;
 		this.luggage = luggage;

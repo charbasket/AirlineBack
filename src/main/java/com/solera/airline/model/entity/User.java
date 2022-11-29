@@ -13,16 +13,17 @@ public class User {
 	private int userId;
 	
 	private String name;
-	private String surame;
+	private String surname;
 	private String nationality;
 	private int identification;
 	private int age;
 	
 	public User() {
 	}
-	public User(String name, String surame, String nationality, int identification, int age) {
+	public User(int userId, String name, String surname, String nationality, int identification, int age) {
+		this.userId = userId;
 		this.name = name;
-		this.surame = surame;
+		this.surname = surname;
 		this.nationality = nationality;
 		this.identification = identification;
 		this.age = age;
@@ -39,11 +40,11 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getSurame() {
-		return surame;
+	public String getSurname() {
+		return surname;
 	}
-	public void setSurame(String surame) {
-		this.surame = surame;
+	public void setSurname(String surame) {
+		this.surname = surame;
 	}
 	public String getNationality() {
 		return nationality;
@@ -63,9 +64,11 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	
+	
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", surame=" + surame + ", nationality=" + nationality
+		return "User [userId=" + userId + ", name=" + name + ", surame=" + surname + ", nationality=" + nationality
 				+ ", identification=" + identification + ", age=" + age + "]";
 	}
 	

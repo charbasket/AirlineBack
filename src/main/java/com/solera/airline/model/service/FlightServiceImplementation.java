@@ -25,16 +25,35 @@ public class FlightServiceImplementation implements FlightService{
 	}
 
 	@Override
+	public List<Flight> findByOriginFlight(String origin) {
+		return fRepo.findFlightByOrigin(origin);
+	}
+
+	@Override
+	public List<Flight> findByDestinyFlight(String destiny) {
+		return fRepo.findFlightByDestiny(destiny);
+	}
+
+	@Override
+	public List<Flight> findByScalesFlight(int scales) {
+		return fRepo.findFlightByScales(scales);
+	}
+	
+	@Override
+	public List<Flight> findByOriginDestinyFlights(String origin, String destiny) {
+		return fRepo.findFlightsByOriginDestiny(origin, destiny);
+	}
+	
+	
+	@Override
 	public int addFlight(Flight flight) {
 		int ok = 0;
-		if (fRepo.findById(flight.getFlightId()) == null) {
 			try {
 				fRepo.save(flight);
 				ok = 1;
 			} catch (Exception e) {
 				e.printStackTrace();
 			} 
-		}
 		return ok;
 	}
 
@@ -51,5 +70,9 @@ public class FlightServiceImplementation implements FlightService{
 		}
 		return ok;
 	}
+
+
+
+
 
 }

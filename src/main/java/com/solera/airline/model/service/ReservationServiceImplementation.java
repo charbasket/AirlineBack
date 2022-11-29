@@ -27,14 +27,12 @@ public class ReservationServiceImplementation implements ReservationService{
 	@Override
 	public int addReservation(Reservation reservation) {
 		int ok = 0;
-		if (rRepo.findById(reservation.getReservationId()) == null) {
 			try {
 				rRepo.save(reservation);
 				ok = 1;
 			} catch (Exception e) {
 				e.printStackTrace();
 			} 
-		}
 		return ok;
 	}
 
