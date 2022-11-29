@@ -1,8 +1,8 @@
-package com.solera.airline.model.service;
+package com.solera.airline.model.user.service;
 
 import java.util.List;
 
-import com.solera.airline.model.entity.User;
+import com.solera.airline.model.user.entity.User;
 
 public interface UserService {
 	

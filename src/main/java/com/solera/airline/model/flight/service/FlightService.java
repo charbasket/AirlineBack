@@ -1,8 +1,8 @@
-package com.solera.airline.model.service;
+package com.solera.airline.model.flight.service;
 
 import java.util.List;
 
-import com.solera.airline.model.entity.Flight;
+import com.solera.airline.model.flight.entity.Flight;
 
 public interface FlightService {
 	List<Flight> findAllFlights();

@@ -1,4 +1,4 @@
-package com.solera.airline.model.dto;
+package com.solera.airline.model.reservation.dto;
 
 public class ReservationDTO {
 

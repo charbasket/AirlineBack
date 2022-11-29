@@ -1,8 +1,8 @@
-package com.solera.airline.model.service;
+package com.solera.airline.model.reservation.service;
 
 import java.util.List;
 
-import com.solera.airline.model.entity.Reservation;
+import com.solera.airline.model.reservation.entity.Reservation;
 
 public interface ReservationService {
 	

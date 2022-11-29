@@ -1,11 +1,11 @@
-package com.solera.airline.model.repository;
+package com.solera.airline.model.flight.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.solera.airline.model.entity.Flight;
+import com.solera.airline.model.flight.entity.Flight;
 
 public interface FlightRepository  extends JpaRepository<Flight, Integer>{
 

@@ -1,12 +1,12 @@
-package com.solera.airline.model.service;
+package com.solera.airline.model.flight.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.solera.airline.model.entity.Flight;
-import com.solera.airline.model.repository.FlightRepository;
+import com.solera.airline.model.flight.entity.Flight;
+import com.solera.airline.model.flight.repository.FlightRepository;
 
 @Service
 public class FlightServiceImplementation implements FlightService{

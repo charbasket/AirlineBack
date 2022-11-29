@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solera.airline.model.entity.User;
-import com.solera.airline.model.service.UserService;
+import com.solera.airline.model.user.entity.User;
+import com.solera.airline.model.user.service.UserService;
 
 @CrossOrigin
 @RestController

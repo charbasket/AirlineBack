@@ -1,12 +1,12 @@
-package com.solera.airline.model.service;
+package com.solera.airline.model.reservation.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.solera.airline.model.entity.Reservation;
-import com.solera.airline.model.repository.ReservationRepository;
+import com.solera.airline.model.reservation.entity.Reservation;
+import com.solera.airline.model.reservation.repository.ReservationRepository;
 
 @Service
 public class ReservationServiceImplementation implements ReservationService{

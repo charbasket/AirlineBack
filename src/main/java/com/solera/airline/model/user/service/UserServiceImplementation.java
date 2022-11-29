@@ -1,12 +1,12 @@
-package com.solera.airline.model.service;
+package com.solera.airline.model.user.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.solera.airline.model.entity.User;
-import com.solera.airline.model.repository.UserRepository;
+import com.solera.airline.model.user.entity.User;
+import com.solera.airline.model.user.repository.UserRepository;
 
 @Service
 public class UserServiceImplementation implements UserService{

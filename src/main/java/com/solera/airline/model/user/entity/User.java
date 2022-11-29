@@ -1,4 +1,4 @@
-package com.solera.airline.model.entity;
+package com.solera.airline.model.user.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

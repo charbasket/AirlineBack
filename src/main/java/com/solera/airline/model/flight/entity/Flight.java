@@ -1,4 +1,4 @@
-package com.solera.airline.model.entity;
+package com.solera.airline.model.flight.entity;
 
 import java.util.Date;
 
