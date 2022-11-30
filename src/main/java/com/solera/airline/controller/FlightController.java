@@ -24,18 +24,22 @@ import com.solera.airline.model.flight.service.FlightService;
 public class FlightController {
 	@Autowired
 	private FlightService fService;
-	
+
 	@GetMapping("/all")
 	public List<Flight> getAllFligths() {
 		return fService.findAllFlights();
 	}
-	
+
 	@GetMapping("/{id}")
 	public Flight getFlightById(@PathVariable int id) {
 		return fService.findByIdFlight(id);
 	}
-	
-	
+
+	@GetMapping("/last")
+	public Flight getLasFlight() {
+		return fService.findLastFlight();
+	}
+
 //	@GetMapping("/destiny/{destiny}")
 //	public List<Flight> getFlightByDestiny(@PathVariable String destiny) {
 //		return fService.findByDestinyFlight(destiny);
@@ -45,32 +49,32 @@ public class FlightController {
 //	public List<Flight> getFlightByOrigin(@PathVariable String origin) {
 //		return fService.findByOriginFlight(origin);
 //	}
-	
+
 	@GetMapping("/desOrg")
-	public List<Flight> getFlightByDestinyOrigin(@RequestParam (required = false) String origin, @RequestParam(required = false) String destiny,
-			@RequestParam (required = false) String airline, @RequestParam (required = false) Integer scales  ) {
+	public List<Flight> getFlightByDestinyOrigin(@RequestParam(required = false) String origin,
+			@RequestParam(required = false) String destiny, @RequestParam(required = false) String airline,
+			@RequestParam(required = false) Integer scales) {
 		List<Flight> flightListToFilter = new ArrayList<>();
 		List<Flight> filteredList = new ArrayList<>();
 
-		if (origin!=null && destiny!=null && airline!=null && scales!=null) {
+		if (origin != null && destiny != null && airline != null && scales != null) {
 			flightListToFilter = fService.findByOriginDestinyFlights(origin, destiny);
 			for (Flight i : flightListToFilter) {
-				if (i.getAirline().toLowerCase().equals(airline.toLowerCase()) && i.getScales()==scales) {
+				if (i.getAirline().toLowerCase().equals(airline.toLowerCase()) && i.getScales() == scales) {
 					System.err.println("estoy en el if");
 					filteredList.add(i);
 				}
 			}
 			return filteredList;
 		}
-		
-		
-		if (origin!=null && destiny!=null) {
+
+		if (origin != null && destiny != null) {
 			return fService.findByOriginDestinyFlights(origin, destiny);
 		}
-		if (origin == null && destiny !=null) {
+		if (origin == null && destiny != null) {
 			return fService.findByDestinyFlight(destiny);
 		}
-		if (origin != null && destiny ==null) {
+		if (origin != null && destiny == null) {
 			return fService.findByOriginFlight(origin);
 		}
 		if (origin == null && destiny == null) {
@@ -78,16 +82,16 @@ public class FlightController {
 		}
 		return null;
 	}
-	
+
 	@PostMapping("/create")
 	public String createFlight(@RequestBody Flight flight) {
 		flight.setDepartureDate(new Date());
 		return fService.addFlight(flight) == 1 ? "ok" : "error";
 	}
-	
+
 	@DeleteMapping("/{id}/delete")
 	public String deleteFlight(@PathVariable int id) {
-		if(fService.findByIdFlight(id) == null) {
+		if (fService.findByIdFlight(id) == null) {
 			return "The flight does not exist";
 		}
 		return fService.deleteFlight(id) == 1 ? "ok" : "error";
