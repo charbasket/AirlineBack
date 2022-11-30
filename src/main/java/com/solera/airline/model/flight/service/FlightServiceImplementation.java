@@ -9,11 +9,11 @@ import com.solera.airline.model.flight.entity.Flight;
 import com.solera.airline.model.flight.repository.FlightRepository;
 
 @Service
-public class FlightServiceImplementation implements FlightService{
+public class FlightServiceImplementation implements FlightService {
 
 	@Autowired
 	private FlightRepository fRepo;
-	
+
 	@Override
 	public List<Flight> findAllFlights() {
 		return fRepo.findAll();
@@ -38,41 +38,41 @@ public class FlightServiceImplementation implements FlightService{
 	public List<Flight> findByScalesFlight(int scales) {
 		return fRepo.findFlightByScales(scales);
 	}
-	
+
 	@Override
 	public List<Flight> findByOriginDestinyFlights(String origin, String destiny) {
 		return fRepo.findFlightsByOriginDestiny(origin, destiny);
 	}
-	
-	
+
 	@Override
 	public int addFlight(Flight flight) {
 		int ok = 0;
-			try {
-				fRepo.save(flight);
-				ok = 1;
-			} catch (Exception e) {
-				e.printStackTrace();
-			} 
+		try {
+			fRepo.save(flight);
+			ok = 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return ok;
 	}
 
 	@Override
 	public int deleteFlight(int flightId) {
 		int ok = 0;
-		if (fRepo.findById(flightId)!= null) {
+		if (fRepo.findById(flightId) != null) {
 			try {
 				fRepo.deleteById(flightId);
 				ok = 1;
 			} catch (Exception e) {
 				e.printStackTrace();
-			} 
+			}
 		}
 		return ok;
 	}
 
-
-
-
+	@Override
+	public Flight findLastFlight() {
+		return fRepo.findFirstByOrderByFlightIdDesc();
+	}
 
 }

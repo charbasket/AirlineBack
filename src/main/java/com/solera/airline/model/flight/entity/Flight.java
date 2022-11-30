@@ -13,7 +13,7 @@ public class Flight {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int flightId;
-	
+
 	private String origin;
 	private String destiny;
 	private String airline;
@@ -23,12 +23,14 @@ public class Flight {
 	private int scales;
 	private boolean luggage;
 	private double price;
-	
+
+	// Añadir pasajeros
+
 	public Flight() {
 	}
 
-	public Flight(String origin, String destiny, String airline, int flightNumber,
-			double transitTime, int scales, boolean luggage, double price) {
+	public Flight(String origin, String destiny, String airline, int flightNumber, double transitTime, int scales,
+			boolean luggage, double price) {
 		this.origin = origin;
 		this.destiny = destiny;
 		this.airline = airline;
@@ -127,5 +129,5 @@ public class Flight {
 				+ ", flightNumber=" + flightNumber + ", departureDate=" + departureDate + ", transitTime=" + transitTime
 				+ ", scales=" + scales + ", luggage=" + luggage + ", price=" + price + "]";
 	}
-	
+
 }
