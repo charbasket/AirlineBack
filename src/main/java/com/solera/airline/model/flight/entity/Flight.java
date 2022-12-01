@@ -1,5 +1,6 @@
 package com.solera.airline.model.flight.entity;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
@@ -18,7 +19,7 @@ public class Flight {
 	private String destiny;
 	private String airline;
 	private int flightNumber;
-	private Date departureDate;
+	private String departureDate;
 	private double transitTime;
 	private int scales;
 	private boolean luggage;
@@ -34,7 +35,9 @@ public class Flight {
 		this.destiny = destiny;
 		this.airline = airline;
 		this.flightNumber = flightNumber;
-		this.departureDate = departureDate;
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
+		this.departureDate = format.format(departureDate);
+//		this.departureDate = departureDate;
 		this.transitTime = transitTime;
 		this.scales = scales;
 		this.luggage = luggage;
@@ -82,11 +85,11 @@ public class Flight {
 		this.flightNumber = flightNumber;
 	}
 
-	public Date getDepartureDate() {
+	public String getDepartureDate() {
 		return departureDate;
 	}
 
-	public void setDepartureDate(Date departureDate) {
+	public void setDepartureDate(String departureDate) {
 		this.departureDate = departureDate;
 	}
 
