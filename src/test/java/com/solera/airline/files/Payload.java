@@ -18,7 +18,7 @@ public class Payload {
 	}
 
 	public static String firsFlight() {
-		return "{\"flightId\":1,\"origin\":\"Barcelona\",\"destiny\":\"Berlin\",\"airline\":\"Iberia\",\"flightNumber\""
-				+ ":54321,\"departureDate\":\"2022-11-29T15:03:05.691+00:00\",\"transitTime\":1.5,\"scales\":0,\"luggage\":true,\"price\":100.0}";
+		return "{\"flightId\":1,\"origin\":\"Barcelona\",\"destiny\":\"Madrid\",\"airline\":\"Iberia\",\"flightNumber\":123456,\"departureDate\":"
+				+ "\"2022-12-01T12:00:00.000+00:00\",\"transitTime\":1.5,\"scales\":0,\"luggage\":false,\"price\":100.0,\"passengers\":0}";
 	}
 }
