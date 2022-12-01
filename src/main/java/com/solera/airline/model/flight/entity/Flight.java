@@ -23,24 +23,23 @@ public class Flight {
 	private int scales;
 	private boolean luggage;
 	private double price;
-
-	// Añadir pasajeros
+	private int passengers;
 
 	public Flight() {
 	}
 
 	public Flight(String origin, String destiny, String airline, int flightNumber, double transitTime, int scales,
-			boolean luggage, double price) {
+			boolean luggage, double price, int passengers, Date departureDate) {
 		this.origin = origin;
 		this.destiny = destiny;
 		this.airline = airline;
 		this.flightNumber = flightNumber;
-//		this.departureDate = departureDate;
-		this.departureDate = new Date();
+		this.departureDate = departureDate;
 		this.transitTime = transitTime;
 		this.scales = scales;
 		this.luggage = luggage;
 		this.price = price;
+		this.passengers = passengers;
 	}
 
 	public int getFlightId() {
@@ -123,11 +122,20 @@ public class Flight {
 		this.price = price;
 	}
 
+	public int getPassengers() {
+		return passengers;
+	}
+
+	public void setPassengers(int passengers) {
+		this.passengers = passengers;
+	}
+
 	@Override
 	public String toString() {
 		return "Flight [flightId=" + flightId + ", origin=" + origin + ", destiny=" + destiny + ", airline=" + airline
 				+ ", flightNumber=" + flightNumber + ", departureDate=" + departureDate + ", transitTime=" + transitTime
-				+ ", scales=" + scales + ", luggage=" + luggage + ", price=" + price + "]";
+				+ ", scales=" + scales + ", luggage=" + luggage + ", price=" + price + ", passengers=" + passengers
+				+ "]";
 	}
 
 }
