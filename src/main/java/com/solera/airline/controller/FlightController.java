@@ -1,7 +1,6 @@
 package com.solera.airline.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,7 +84,6 @@ public class FlightController {
 
 	@PostMapping("/create")
 	public String createFlight(@RequestBody Flight flight) {
-		flight.setDepartureDate(new Date());
 		return fService.addFlight(flight) == 1 ? "ok" : "error";
 	}
 
